@@ -1,0 +1,38 @@
+﻿@model IEnumerable<HostelManagement.Models.Room>
+
+@{
+    ViewData["Title"] = "Room List";
+}
+
+<h1>Rooms</h1>
+
+<p>
+    <a href="@Url.Action("Create", "Room")" class="btn btn-primary">Create New Room</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Room Number</th>
+            <th>Room Type</th>
+            <th>Capacity</th>
+            <th>Price Per Night</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var room in Model)
+        {
+            <tr>
+                <td>@room.RoomNumber</td>
+                <td>@room.RoomType</td>
+                <td>@room.Capacity</td>
+                <td>@room.PricePerNight</td>
+                <td>
+                    <a href="@Url.Action("Edit", "Room", new { id = room.Id.ToString() })" class="btn btn-warning">Edit</a>
+                    <a href="@Url.Action("Delete", "Room", new { id = room.Id.ToString() })" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this room?')">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

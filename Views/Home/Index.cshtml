@@ -1,0 +1,174 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<div class="header">
+    <h1>Welcome to Our Hostel</h1>
+    <p>Your home away from home. Comfortable and affordable stays await you.</p>
+</div>
+
+<div class="section" style="background-color: #ecf0f1;">
+    <h2 class="section-header">About Us</h2>
+    <p class="section-text">We provide a safe, comfortable, and affordable place for students, travelers, and professionals. Your comfort is our priority.</p>
+    <a href="#about" class="btn-main">Learn More</a>
+    <img src="https://th.bing.com/th/id/R.44984860441341b68c4032a6404589c8?rik=%2bebAkyrb4J9AmQ&pid=ImgRaw&r=0" alt="Hostel interior" class="img-fluid" style="max-width: 100%; height: auto; border-radius: 10px; margin-top: 20px;">
+</div>
+
+<div class="section" style="background-color: #fff; padding: 60px 20px;">
+    <h2 class="section-header text-center">Our Rooms</h2>
+    <p class="section-text text-center">Explore a variety of rooms designed to fit your needs. Swipe through our options below.</p>
+
+    <div id="roomCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="https://th.bing.com/th/id/OIP.s0fyRWUFDUpE4QStaAP9ogHaEK?rs=1&pid=ImgDetMain" alt="Room 1" class="img-fluid rounded">
+                    </div>
+                    <div class="col-md-6">
+                        <h3 class="room-title">Standard Room</h3>
+                        <p class="section-text">A comfortable and affordable room option for solo travelers or couples. Enjoy a relaxing stay with all the essentials.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="https://th.bing.com/th/id/OIP.I8G8xjBPrtAU3w6b5-qaBwHaFN?rs=1&pid=ImgDetMain" alt="Room 2" class="img-fluid rounded">
+                    </div>
+                    <div class="col-md-6">
+                        <h3 class="room-title">Luxury Room</h3>
+                        <p class="section-text">Indulge in luxury with this spacious room featuring elegant furnishings, premium amenities, and a stunning view.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="https://th.bing.com/th/id/R.ff12bdf18a47eb54e620e763ec1f4e21?rik=JldKalTyXRoW%2fQ&riu=http%3a%2f%2fwww.chelseatoronto.com%2fen%2fuploads%2fimages%2f2015%2f08%2fdeluxe-room-double-new.jpg&ehk=eBFB6ipbZGs2%2fNOAsHRTEdRNwgevoMgCFgDTh3sAL%2fw%3d&risl=&pid=ImgRaw&r=0" alt="Room 3" class="img-fluid rounded">
+                    </div>
+                    <div class="col-md-6">
+                        <h3 class="room-title">Deluxe Room</h3>
+                        <p class="section-text">A perfect choice for those looking for a mix of comfort and style. Equipped with modern facilities and a beautiful ambiance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#roomCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#roomCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+
+<div class="section" style="background-color: #ecf0f1;">
+    <h2 class="section-header">Book a Room</h2>
+    <p class="section-text">Easily book your room online. Check availability, choose your preferences, and confirm your stay in just a few clicks.</p>
+    <a asp-controller ="booking" asp-action ="create" class="btn-main">Book Now</a>
+    <img src="https://th.bing.com/th/id/R.82be86dad8cf7faf802bb0dfca2621b0?rik=BkRTwO%2buPntuWw&riu=http%3a%2f%2fmasseyonline.com.au%2fassets%2farticle-images%2fBook-Direct-v4.png&ehk=Ur8l9hPKWiU9JPYADSlm2WomBZ2cT%2bkmWrO1QAm6lfA%3d&risl=&pid=ImgRaw&r=0" alt="Online booking" class="img-fluid" style="max-width: 100%; height: auto; border-radius: 10px; margin-top: 20px;">
+</div>
+
+<div class="section" style="background-color: #fff;">
+    <h2 class="section-header">What Our Guests Say</h2>
+    <p class="section-text">Don't just take our word for it! Read the experiences of our happy customers who have enjoyed their stay at our hostel.</p>
+    <a href="#testimonials" class="btn-main">Read Reviews</a>
+    <img src="https://th.bing.com/th/id/R.8351bcc579b3a7af6ca9cc3669230a4c?rik=Xn%2b9wf6UFTAJvQ&riu=http%3a%2f%2fwww.vafion.com%2fblog%2fwp-content%2fuploads%2f2022%2f09%2fhappy-hotel-guest-walking-through-lobby-smiling-at-phone.jpg&ehk=iEJIr4gLXj%2bln5cWjH12FN6dZByQIJA%2fR37eVG7Fgn0%3d&risl=&pid=ImgRaw&r=0" alt="Happy guests" class="img-fluid" style="max-width: 100%; height: auto; border-radius: 10px; margin-top: 20px;">
+</div>
+
+<div class="section" style="background-color: #ecf0f1;">
+    <h2 class="section-header">Contact Us</h2>
+    <p class="section-text">Have any questions? Feel free to reach out to us. We’re here to help with any queries or special requests you may have.</p>
+    <a href="#contact" class="btn-main">Get in Touch</a>
+    <img src="https://th.bing.com/th/id/OIP.R5osiF9zw_oqa_6hgwR4gAHaE7?rs=1&pid=ImgDetMain" alt="Contact us" class="img-fluid" style="max-width: 100%; height: auto; border-radius: 10px; margin-top: 20px;">
+</div>
+
+<style>
+    /* General Styling */
+    body {
+        background-color: #f4f6f8; /* Light gray background for the entire page */
+        color: #333;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Header Section */
+    .header {
+        background-color: #2c3e50; /* Dark header */
+        color: white;
+        text-align: center;
+        padding: 60px 0;
+    }
+
+        .header h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+    /* Section Header */
+    .section-header {
+        color: #2c3e50;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 2rem;
+    }
+
+    /* Styling for all sections */
+    .section {
+        padding: 60px 20px;
+        text-align: center;
+    }
+
+    .section-text {
+        font-size: 1.2rem;
+        color: #34495e;
+        margin-bottom: 20px;
+    }
+
+    /* Button Styling */
+    .btn-main {
+        background-color: #f39c12; /* Vibrant orange */
+        color: white;
+        padding: 12px 30px;
+        border-radius: 30px;
+        font-weight: bold;
+        text-transform: uppercase;
+        transition: background-color 0.3s ease;
+        text-decoration: none;
+    }
+
+        .btn-main:hover {
+            background-color: #e67e22; /* Darker shade of orange on hover */
+        }
+
+    /* Footer Styling */
+    footer {
+        background-color: #2c3e50;
+        color: #fff;
+        text-align: center;
+        padding: 20px 0;
+    }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+            footer a:hover {
+                color: #f39c12;
+            }
+</style>

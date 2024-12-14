@@ -1,0 +1,38 @@
+﻿@model HostelManagement.Models.User
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="d-flex align-items-center justify-content-center" style="min-height: 100vh; background-color: #fff;">
+    <div class="card shadow" style="width: 400px; border-radius: 8px; padding: 30px; background-color: #fff;">
+        <h2 class="text-center mb-4" style="font-weight: bold; color: #333;">Welcome Back</h2>
+        <p class="text-center text-muted mb-4">Login to access your account</p>
+        <form method="post">
+            <div class="mb-3">
+                <label for="Username" class="form-label" style="font-weight: 500;">Username</label>
+                <input type="text" id="Username" name="username" class="form-control" placeholder="Enter your username" required />
+                <span asp-validation-for="Username" class="text-danger small"></span>
+            </div>
+
+            <div class="mb-3">
+                <label for="Password" class="form-label" style="font-weight: 500;">Password</label>
+                <input type="password" id="Password" name="password" class="form-control" placeholder="Enter your password" required />
+                <span asp-validation-for="Password" class="text-danger small"></span>
+            </div>
+
+            <div class="d-grid">
+                <button type="submit" class="btn btn-outline-primary" style="border-radius: 5px; font-weight: 500;">Login</button>
+            </div>
+
+            <div class="text-center mt-3">
+                <a asp-action="Register" class="text-primary" style="text-decoration: none; font-size: 14px;">Don’t have an account? Register here</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/lib/jquery-validation/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

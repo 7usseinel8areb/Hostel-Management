@@ -1,0 +1,87 @@
+﻿@model HostelManagement.Models.Room
+
+@{
+    ViewData["Title"] = "Edit Room";
+}
+
+<h1 class="text-center">Edit Room</h1>
+
+<form method="post">
+    <div class="form-group mb-4">
+        <label for="RoomNumber">Room Number</label>
+        <input type="text" id="RoomNumber" name="RoomNumber" class="form-control" value="@Model.RoomNumber" required />
+        <span asp-validation-for="RoomNumber" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-4">
+        <label for="RoomType">Room Type</label>
+        <select id="RoomType" name="RoomType" class="form-control" required>
+            <option value="">Select Room Type</option>
+            <option value="Single" >Single</option>
+            <option value="Double">Double</option>
+            <option value="Triple">Triple</option>
+        </select>
+        <span asp-validation-for="RoomType" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-4">
+        <label for="Capacity">Capacity</label>
+        <input type="number" id="Capacity" name="Capacity" class="form-control" value="@Model.Capacity" min="1" max="100" required />
+        <span asp-validation-for="Capacity" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-4">
+        <label for="PricePerNight">Price Per Night</label>
+        <input type="number" id="PricePerNight" name="PricePerNight" class="form-control" value="@Model.PricePerNight" min="0" step="0.01" />
+        <span asp-validation-for="PricePerNight" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-lg btn-block">Save Changes</button>
+</form>
+
+<style>
+    /* Center the form and style it */
+    form {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #f9f9f9;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Label and Input styling */
+    label {
+        font-size: 1.1rem;
+        font-weight: bold;
+    }
+
+    .form-control {
+        font-size: 1.1rem;
+        padding: 10px;
+    }
+
+    /* Save button styling */
+    .btn-primary {
+        background-color: #2c3e50;
+        border-color: #2c3e50;
+        font-size: 1.2rem;
+        padding: 12px;
+    }
+
+        .btn-primary:hover {
+            background-color: #34495e;
+            border-color: #34495e;
+        }
+
+    /* Error message styling */
+    .text-danger {
+        font-size: 0.9rem;
+    }
+
+    /* Input focus effect */
+    .form-control:focus {
+        border-color: #2c3e50;
+        box-shadow: 0 0 5px rgba(44, 62, 80, 0.5);
+    }
+</style>

@@ -1,0 +1,127 @@
+﻿@model HostelManagement.Models.Booking
+
+@{
+    ViewData["Title"] = "Create Booking";
+    var userId = Context.Session.GetString("UserId");
+}
+
+<h1 class="text-center mb-5">Create Booking</h1>
+
+<form method="post">
+    <!-- Room Selection -->
+    <div class="form-group mb-4">
+        <label for="RoomId">Room</label>
+        <select id="RoomId" name="RoomId" class="form-control" required>
+            <option value="">Select Room</option>
+            @if (ViewBag.Rooms != null)
+            {
+                @foreach (var room in ViewBag.Rooms as List<HostelManagement.Models.Room>)
+                {
+                    <option value="@room.Id" data-price="@room.PricePerNight">@room.RoomNumber - @room.RoomType</option>
+                }
+            }
+            else
+            {
+                <option>No rooms available</option>
+            }
+        </select>
+        <span asp-validation-for="RoomId" class="text-danger"></span>
+    </div>
+
+    <!-- Start Date -->
+    <div class="form-group mb-4">
+        <label for="StartDate">Start Date</label>
+        <input type="date" id="StartDate" name="StartDate" class="form-control" required />
+        <span asp-validation-for="StartDate" class="text-danger"></span>
+    </div>
+
+    <!-- End Date -->
+    <div class="form-group mb-4">
+        <label for="EndDate">End Date</label>
+        <input type="date" id="EndDate" name="EndDate" class="form-control" required />
+        <span asp-validation-for="EndDate" class="text-danger"></span>
+    </div>
+
+    <!-- Total Amount -->
+    <div class="form-group mb-4">
+        <label for="TotalAmount">Total Amount</label>
+        <input type="text" id="TotalAmount" name="TotalAmount" class="form-control" disabled value="@Model.TotalAmount" />
+    </div>
+
+    <!-- Hidden UserId Field -->
+    <input type="hidden" id="UserId" name="UserId" value="@userId" />
+
+    <button type="submit" class="btn btn-primary btn-lg btn-block">Create Booking</button>
+</form>
+
+@section Scripts {
+    <script>
+        document.getElementById("StartDate").addEventListener("change", updateTotalAmount);
+        document.getElementById("EndDate").addEventListener("change", updateTotalAmount);
+
+        function updateTotalAmount() {
+            const startDate = new Date(document.getElementById("StartDate").value);
+            const endDate = new Date(document.getElementById("EndDate").value);
+
+            if (startDate && endDate && startDate < endDate) {
+                const days = Math.ceil((endDate - startDate) / (1000 * 3600 * 24));
+
+                const roomSelect = document.getElementById("RoomId");
+                const roomPrice = roomSelect.options[roomSelect.selectedIndex].dataset.price || 100;
+
+                const totalAmount = days * roomPrice;
+
+                document.getElementById("TotalAmount").value = totalAmount.toFixed(2);
+            } else {
+                document.getElementById("TotalAmount").value = '';
+            }
+        }
+    </script>
+}
+
+<style>
+    /* Center and style the form */
+    form {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #f9f9f9;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Label and Input field styling */
+    label {
+        font-size: 1.1rem;
+        font-weight: bold;
+    }
+
+    .form-control {
+        font-size: 1.1rem;
+        padding: 10px;
+    }
+
+    /* Button styling */
+    .btn-primary {
+        background-color: #2c3e50;
+        border-color: #2c3e50;
+        font-size: 1.2rem;
+        padding: 12px;
+    }
+
+        .btn-primary:hover {
+            background-color: #34495e;
+            border-color: #34495e;
+        }
+
+    /* Error message styling */
+    .text-danger {
+        font-size: 0.9rem;
+    }
+
+    /* Input focus effect */
+    .form-control:focus {
+        border-color: #2c3e50;
+        box-shadow: 0 0 5px rgba(44, 62, 80, 0.5);
+    }
+</style>

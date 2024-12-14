@@ -1,0 +1,47 @@
+﻿@model HostelManagement.Models.Feedback
+
+@{
+    ViewData["Title"] = "Create Feedback";
+}
+
+<h1>Create Feedback</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label for="UserId">User</label>
+        <select id="UserId" name="UserId" class="form-control" required>
+            <option value="">Select User</option>
+            @foreach (var user in ViewBag.Users as List<HostelManagement.Models.User>)
+            {
+                <option value="@user.Id">@user.Username</option>
+            }
+        </select>
+        <span asp-validation-for="UserId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="Message">Message</label>
+        <textarea id="Message" name="Message" class="form-control" required></textarea>
+        <span asp-validation-for="Message" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="Rating">Rating</label>
+        <select id="Rating" name="Rating" class="form-control" required>
+            <option value="">Select Rating</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <span asp-validation-for="Rating" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit Feedback</button>
+</form>
+
+@section Scripts {
+     <script src="~/lib/jquery-validation/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

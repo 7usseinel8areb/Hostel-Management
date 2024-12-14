@@ -1,0 +1,16 @@
+﻿@model HostelManagement.Models.Room
+
+@{
+    ViewData["Title"] = "Delete Room";
+}
+
+<h1>Delete Room</h1>
+
+<div>
+    <p>Are you sure you want to delete the room with number <strong>@Model.RoomNumber</strong>?</p>
+</div>
+
+<form method="post">
+    <button type="submit" class="btn btn-danger">Yes, Delete</button>
+    <a href="@Url.Action("Index", "Room")" class="btn btn-secondary">Cancel</a>
+</form>
